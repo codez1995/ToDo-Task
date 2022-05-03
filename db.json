@@ -11,21 +11,21 @@
     {},
     {}
   ],
-  "addTask": [
-    {
-      "taskName": "Create Login Page",
-      "taskDescription": "Helllo",
-      "repeatTask": "yes",
-      "status": "UnDone",
-      "id": 1
-    },
+  "addTask": [],
+  "doneTask": [
     {
       "taskName": "Create SignUp Page",
       "taskDescription": "Hello1",
       "repeatTask": "yes",
-      "status": "UnDone",
+      "status": "Done",
       "id": 2
+    },
+    {
+      "taskName": "Create Login Page",
+      "taskDescription": "Helllo",
+      "repeatTask": "yes",
+      "status": "Done",
+      "id": 1
     }
-  ],
-  "doneTask": []
+  ]
 }

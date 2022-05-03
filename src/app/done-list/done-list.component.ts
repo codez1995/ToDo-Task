@@ -14,7 +14,6 @@ export class DoneListComponent implements OnInit {
     {name: "taskDescription", displayName: "TASK DESCRIPTION", width: "800px", type:"text", class:"task"},
     {name: "repeatTask", displayName: "REPEAT TASK", width:"150px", type:"text", class:"task"},
     {name: "status", displayName: "STATUS", width:"100px", type:"text", class:"task"},
-    {name: "icons", displayName: "ICON", width:"200px", type:"icons", class:"task"}
   ]
   moviesData!: any[];
   listDisplayColumns!: string[];
