@@ -8,6 +8,13 @@ import { ToDoComponent } from './to-do/to-do.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { DoneListComponent } from './done-list/done-list.component';
 
+/** Import Angular Material Module Path */
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +25,15 @@ import { DoneListComponent } from './done-list/done-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+
+    //** Import Angular Material Modules */
+    MatToolbarModule,
+    MatIconModule,
+    MatSelectModule,
+    MatInputModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

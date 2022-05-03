@@ -1,0 +1,39 @@
+::ng-deep {
+    mat-toolbar.mat-toolbar.mat-toolbar-single-row {
+        background-color: #ed0713;
+        mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
+            color: white;
+            font-size: 25px;
+        }
+        span {
+            color: #fff;
+            text-transform: uppercase;
+            padding-left: 20px;
+            font-weight: 600;
+        }
+    }
+    .data-container {
+        padding: 20px 10px;
+        display: flex;
+    }
+    .right-section,
+    .left-section {
+        display: inline-block;
+        margin-left: 5px;
+    }
+    div.right-section {
+        width: 30%;
+        height: 700px;
+        // border: 2px solid black;
+    }
+    div.left-section {
+        width: 69%;
+        // border: 2px solid black;
+        div.left-upper-section {
+            height: 350px;
+        }
+        div.left-lower-section {
+            height: 350px;
+        }
+    }
+}
