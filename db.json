@@ -14,24 +14,17 @@
   "addTask": [
     {
       "taskName": "Create Login Page",
-      "taskDescription": "Please guys create login page from scratch",
+      "taskDescription": "Helllo",
       "repeatTask": "yes",
       "status": "UnDone",
       "id": 1
     },
     {
       "taskName": "Create SignUp Page",
-      "taskDescription": "Please guys create signUp Page from Scratch",
+      "taskDescription": "Hello1",
       "repeatTask": "yes",
       "status": "UnDone",
       "id": 2
-    },
-    {
-      "taskName": "Create Forgot Password Page",
-      "taskDescription": "Please guys create Forgot Password Page",
-      "repeatTask": "yes",
-      "status": "UnDone",
-      "id": 3
     }
   ],
   "doneTask": []
