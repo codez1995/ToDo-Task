@@ -3,24 +3,25 @@
 </mat-toolbar>
 
 <div class="TO-DO-FORM">
-    <form class="example-form">
+    <form class="example-form" [formGroup]="taskForm">
         <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Favorite food</mat-label>
-            <input matInput placeholder="Ex. Pizza" value="Sushi">
+            <mat-label>Task Name</mat-label>
+            <input matInput placeholder="Enter task name" formControlName="taskName">
         </mat-form-field>
-
+        <mat-error *ngIf="taskForm.controls['taskName'].hasError('required') && taskForm.controls['taskName'].touched" class="form-error-msg">Task Name is required</mat-error>
         <mat-form-field class="example-full-width textarea" appearance="fill">
-            <mat-label>Leave a comment</mat-label>
-            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+            <mat-label>Task Description</mat-label>
+            <textarea matInput placeholder="Enter task description" formControlName="taskDescription"></textarea>
         </mat-form-field>
-
+        <mat-error *ngIf="taskForm.controls['taskDescription'].hasError('required') && taskForm.controls['taskDescription'].touched" class="form-error-msg">Task Description is required</mat-error>
         <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Favorite food</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let food of foods" [value]="food.value">
-                    {{food.viewValue}}
+            <mat-label>Repeating Task</mat-label>
+            <mat-select formControlName="repeatTask">
+                <mat-option *ngFor="let task of tasks" [value]="task.value">
+                    {{task.viewValue}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
+        <mat-error *ngIf="taskForm.controls['repeatTask'].hasError('required') && taskForm.controls['repeatTask'].touched" class="form-error-msg">Repeating Task is required</mat-error>
     </form>
 </div>
