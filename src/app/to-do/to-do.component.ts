@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TaskService } from '../task-service/task.service';
 
 interface Task {
   value: string;
@@ -19,10 +20,14 @@ export class ToDoComponent implements OnInit {
     {value: 'no', viewValue: 'NO'},
   ];
   taskForm!: FormGroup;
-  constructor() { }
+  @Output() getAllTask = new EventEmitter<any>();
+  constructor(private taskSvc: TaskService) { }
 
   ngOnInit(): void {
     this.InitializetaskForm();
+    this.taskForm.valueChanges.subscribe((response) => {
+      this.SubmitForm();
+    })
   }
   InitializetaskForm() {
     this.taskForm = new FormGroup({
@@ -30,5 +35,20 @@ export class ToDoComponent implements OnInit {
       taskDescription: new FormControl('', [Validators.required]),
       repeatTask: new FormControl('', [Validators.required]),
     })
+  }
+
+  SubmitForm() {
+    if(this.taskForm.valid) {
+      let formData = {
+        taskName: this.taskForm.value.taskName,
+        taskDescription: this.taskForm.value.taskDescription,
+        repeatTask: this.taskForm.value.repeatTask,
+        status: "UnDone"
+      }
+      this.taskSvc.postTask(formData).subscribe((response) => {
+        this.getAllTask.emit();
+        setTimeout(() => { this.taskForm.reset(); }, 300);
+      })
+    }
   }
 }

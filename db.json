@@ -1,16 +1,38 @@
 {
-    "toDoListColumns": [
-        {},
-        {},
-        {},
-        {}
-    ],
-    "toDoDoneListColumns": [
-        {},
-        {},
-        {},
-        {}
-    ],
-    "addTask": [],
-    "doneTask": []
+  "toDoListColumns": [
+    {},
+    {},
+    {},
+    {}
+  ],
+  "toDoDoneListColumns": [
+    {},
+    {},
+    {},
+    {}
+  ],
+  "addTask": [
+    {
+      "taskName": "Create Login Page",
+      "taskDescription": "Please guys create login page from scratch",
+      "repeatTask": "yes",
+      "status": "UnDone",
+      "id": 1
+    },
+    {
+      "taskName": "Create SignUp Page",
+      "taskDescription": "Please guys create signUp Page from Scratch",
+      "repeatTask": "yes",
+      "status": "UnDone",
+      "id": 2
+    },
+    {
+      "taskName": "Create Forgot Password Page",
+      "taskDescription": "Please guys create Forgot Password Page",
+      "repeatTask": "yes",
+      "status": "UnDone",
+      "id": 3
+    }
+  ],
+  "doneTask": []
 }
