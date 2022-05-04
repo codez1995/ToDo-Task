@@ -43,12 +43,12 @@ export class ToDoComponent implements OnInit {
         taskName: this.taskForm.value.taskName,
         taskDescription: this.taskForm.value.taskDescription,
         repeatTask: this.taskForm.value.repeatTask,
-        status: "UnDone"
+        status: "UnDone",
       }
-      this.taskSvc.postTask(formData).subscribe((response) => {
-        this.getAllTask.emit();
-        setTimeout(() => { this.taskForm.reset(); }, 300);
-      })
+      this.taskSvc.addedUnDoneTaskInTable([formData]);
+      setTimeout(() => {
+        this.taskForm.reset();
+      }, 500);
     }
   }
 }

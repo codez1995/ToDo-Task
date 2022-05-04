@@ -29,7 +29,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule,
     
     //** Import Angular Material Modules */
     MatToolbarModule,

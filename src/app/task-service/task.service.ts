@@ -1,31 +1,33 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  serverUrl = "http://localhost:3000"
+  constructor() { }
 
-  constructor(private httpClient: HttpClient) { }
+  listDatacolumns = [
+    {name: "checkBox", displayName: "", width: "100px", type:"checkBox", class:"task"},
+    {name: "taskName", displayName: "TASK NAME", width: "200px", type:"text", class:"task"},
+    {name: "taskDescription", displayName: "TASK DESCRIPTION", width: "800px", type:"text", class:"task"},
+    {name: "repeatTask", displayName: "REPEAT TASK", width:"150px", type:"text", class:"task"},
+    {name: "status", displayName: "STATUS", width:"100px", type:"text", class:"task"},
+  ]
+  addUnDoneTask = new EventEmitter<any>();
 
-  postTask(task:any) {
-    return this.httpClient.post(this.serverUrl + "/addTask", task);
+  addDoneTask = new EventEmitter<any>();
+
+  addedUnDoneTaskInTable(data: any) {
+    this.addUnDoneTask.emit(data);
   }
-  getAllTask() {
-    return this.httpClient.get(this.serverUrl + "/addTask");
+  returnUndoneTask() {
+    return this.addUnDoneTask;
   }
-  shiftTaskinDone(id: number) {
-    return this.httpClient.delete(this.serverUrl + "/addTask/" + id);
+  addedDoneTaskInTable(data: any) {
+    this.addDoneTask.emit(data);
   }
-  postDoneTask(task: any) {
-    return this.httpClient.post(this.serverUrl + "/doneTask", task);
-  }
-  getAllDoneTask() {
-    return this.httpClient.get(this.serverUrl + "/doneTask");
-  }
-  deleteDataFromDoneTask(id: number) {
-    return this.httpClient.delete(this.serverUrl + "/doneTask/" + id);
+  returnDoneTask() {
+    return this.addDoneTask;
   }
 }

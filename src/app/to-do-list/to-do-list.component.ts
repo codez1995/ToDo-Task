@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { TaskService } from '../task-service/task.service';
 
 @Component({
@@ -7,24 +7,25 @@ import { TaskService } from '../task-service/task.service';
   styleUrls: ['./to-do-list.component.scss']
 })
 export class ToDoListComponent implements OnInit {
-  @Input() allTaskList: any;
+  allTaskList: any[] = [];
   @Output() deleteRecord = new EventEmitter<any>();
-  listDatacolumns = [
-    {name: "checkBox", displayName: "", width: "100px", type:"checkBox", class:"task"},
-    {name: "taskName", displayName: "TASK NAME", width: "200px", type:"text", class:"task"},
-    {name: "taskDescription", displayName: "TASK DESCRIPTION", width: "800px", type:"text", class:"task"},
-    {name: "repeatTask", displayName: "REPEAT TASK", width:"150px", type:"text", class:"task"},
-    {name: "status", displayName: "STATUS", width:"100px", type:"text", class:"task"},
-  ]
-  moviesData!: any[];
-  listDisplayColumns!: string[];
-  constructor() { }
+  listDatacolumns: any[] = []
+  moviesData: any[] = [];
+  listDisplayColumns: string[] = [];
+  constructor(private taskSvc: TaskService) { }
   ngOnInit(): void {
+    this.taskSvc.returnUndoneTask().subscribe((response) => {
+      console.log(response);
+      this.allTaskList = response;
+    })
+    this.listDatacolumns = this.taskSvc.listDatacolumns
     this.listDisplayColumns = this.listDatacolumns.map((x: any) => x.name);
   }
   selectRow(cell: any) {
     setTimeout(() => {
-      this.deleteRecord.emit(cell);
+      cell.status = "Done"
+      this.taskSvc.addedDoneTaskInTable([cell]);
+      this.taskSvc.addedUnDoneTaskInTable(null);
     }, 1000);
   }
 }
